@@ -388,9 +388,12 @@ public class XML {
                 continue;
             }
         }
-        if (nextElement == null) {
+
+        //prevent NPE
+        if (nextElement == null || nextElement.getFirstChild() == null || nextElement.getFirstChild().getNodeValue()== null) {
             return null;
         }
+
         String value = nextElement.getFirstChild().getNodeValue();
         if (value == null) {
             return null;
